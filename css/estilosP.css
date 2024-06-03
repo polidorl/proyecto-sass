@@ -1,0 +1,294 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  /*crea una transicion suave y fluida */
+  /*en lugar de un salto brusco su efecto ppal*/
+  /*se observa es en los enlaces ,<a>*/
+  scroll-behavior: smooth;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+/*elementos q se repiten en las secciones de banner */
+/*servicios y clientes*/
+body {
+  font-family: "Roboto", sans-serif;
+}
+
+.navbar-menu {
+  background-color: #0C1142;
+  padding: 0 80px;
+  width: 100%;
+  height: 70px;
+  line-height: 70px; /*De esta manera alinea el logo con la barra de nav*/
+  position: fixed; /*Para fijar la posicion de la barra de menu*/
+  z-index: 1; /*Que este por encima de los textos*/
+}
+.navbar-menu #check, .navbar-menu .checkbtn {
+  display: none;
+}
+.navbar-menu .logo {
+  color: #ffffff;
+  font-size: 30px;
+  font-weight: bold;
+}
+.navbar-menu .nav-options {
+  float: right;
+  list-style: none;
+}
+.navbar-menu .nav-options li {
+  display: inline-block;
+  margin: 0 5px;
+  font-size: 20px;
+}
+.navbar-menu .nav-options a {
+  text-decoration: none;
+  text-transform: uppercase;
+  color: #ffffff;
+  padding: 10px;
+  border-radius: 4px;
+  transition: all 0.5s ease;
+}
+.navbar-menu .nav-options a:focus, .navbar-menu .nav-options a:hover {
+  background-color: #3197B9;
+}
+
+.banner {
+  border: 3px dotted yellow;
+  min-height: 100vh;
+  padding: 80px;
+  background: url(../../img/bannerprincipal.jpg);
+  /*La imagen esta muy grande*/
+  background-size: cover;
+  /*Para ajustar la imagen*/
+  position: relative;
+  /*Se observa que el texto no se ve tan pronunciadp en base al fondo*/
+  /*Para eso se aplica la propiedad "::before" */
+  /*Para aplicar un sombreado y que el texto se vea mucho mas pronunciado */
+  /*se coloca antes un 'position relative' para que el before que es practicamente una capa doble*/
+  /*este por encima del fondo, es decir en position absoluta*/
+  /*entonces se coloca un background rgba con una opacidad del 50%*/
+}
+.banner::before {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  content: "";
+  top: 0;
+  left: 0;
+}
+.banner .banner-text {
+  width: 100%;
+  border: 2px dotted red;
+  color: #ffffff;
+  position: relative;
+  /*Para poder colocar o trasladar el texto en una parte mas centrada*/
+  transform: translateY(30vh);
+  display: block;
+}
+.banner .banner-text h2 {
+  font-size: 50px;
+}
+.banner .banner-text p,
+.banner .banner-text a {
+  font-size: 20px;
+}
+.banner .banner-text a {
+  text-decoration: none;
+  color: #f2e9e9;
+  border: 3px solid #f2e9e9;
+  display: inline-block;
+  /*esto es para que el relleno se vea un poco mas separado del parrafo, si no esta el display no se separa mucho del parrafo*/
+  padding: 10px;
+  margin-top: 10px;
+  transition: all 0.5s ease-in-out;
+}
+.banner .banner-text a:hover {
+  background: #f2e9e9;
+  color: #2B2727;
+}
+
+.container {
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  position: relative;
+}
+.container h2 {
+  font-size: 45px;
+  text-transform: uppercase;
+}
+.container p {
+  padding: 15px 50px;
+  font-size: 20px;
+}
+
+.servicios {
+  min-height: 100vh;
+  position: relative;
+  padding: 80px;
+  border: 3px dotted red;
+  background-color: #4D5597;
+  color: #ffffff;
+  /*se borran estos codigos y se coloca en un archivo llamado: "_encabezado.scss"*/
+  /*la razon es porque este grupo de codigo es el mismo que en la seccion de clientes*/
+}
+.servicios .servicios-img {
+  border: 3px dotted black;
+  padding-top: 30px;
+}
+.servicios .servicios-img .servicios-imgx {
+  width: 33%;
+  height: 33%;
+  display: inline-block;
+  overflow: hidden;
+  border: 3px dotted green;
+}
+.servicios .servicios-img .servicios-imgx .img-job {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /*esto significa que puede cubrir */
+  /*todo el espacio de su contenedor"servicios-imgx*/
+  border-radius: 5%;
+  padding: 10px;
+}
+
+.clientes {
+  border: 3px dotted greenyellow;
+  min-height: 100vh;
+  padding: 80px;
+  background: url(../../img/fondotestimonials.jpg);
+  background-size: cover;
+  /*Va a ocupar todo el contenedor padre: ".clientes"*/
+  background-attachment: fixed;
+  position: relative;
+  color: #ffffff;
+  /*se borran estos codigos y se coloca en un archivo llamado: "_encabezado.scss"*/
+}
+.clientes::before {
+  position: absolute;
+  content: "";
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  top: 0;
+  left: 0;
+}
+.clientes .clientes-group {
+  border: 3px dotted black;
+  padding-top: 30px;
+}
+.clientes .clientes-group .clientes-card {
+  border: 3px solid gray;
+  width: 33%;
+  height: 33%;
+  overflow: hidden;
+  /*En caso supere la imagen hacia */
+  /*este contenedor padre .clientes-card*/
+  display: inline-block;
+}
+.clientes .clientes-group .clientes-card .img-perfil {
+  border: 3px solid #ffffff;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+}
+.clientes .clientes-group .clientes-card h4 {
+  font-size: 20px;
+}
+
+.contacto {
+  border: 3px dotted red;
+  min-height: 100vh;
+  padding: 80px;
+  position: relative;
+  background-color: darkgrey;
+  color: #ffffff;
+}
+.contacto .container {
+  border: 3px dotted darkgoldenrod;
+}
+.contacto .container .contacto-group {
+  border: 3px dotted green;
+  margin-top: 30px;
+}
+.contacto .container .contacto-group .form-contact {
+  border: 3px dotted darkmagenta;
+  width: 50%;
+  float: left;
+}
+.contacto .container .contacto-group .form-contact .form-control {
+  border: 1.5px solid #c7c7c7;
+  width: 85%; /*cada input va a ocupar el 85% del contenedor*/
+  /*form-contacto que tiene un ancho de 50%*/
+  padding: 8px;
+  border-radius: 5px;
+  margin: 12px;
+  display: block;
+  font-size: 16px;
+}
+.contacto .container .contacto-group .form-contact .submt-btn {
+  display: block;
+  font-size: 16px;
+  text-transform: uppercase;
+  background-color: #0c1142;
+  color: #ffffff;
+  border: none;
+  padding: 8px 15px;
+  border-radius: 5px;
+  cursor: pointer;
+  margin: 12px;
+}
+.contacto .container .contacto-img {
+  border: 3px dotted rgb(219, 219, 226);
+  width: 50%;
+  overflow: hidden;
+}
+.contacto .container .contacto-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.footer {
+  min-height: 10vh;
+  background-color: #0C1142;
+  color: #ffffff;
+  padding: 0 80px;
+}
+.footer .footer-content {
+  border: 3px dotted red;
+}
+.footer .footer-content .social {
+  border: 0.5px dotted green;
+  width: 50%;
+  float: left;
+  color: #ffffff;
+}
+.footer .footer-content .social label, .footer .footer-content .social a {
+  color: #ffffff;
+  font-size: 25px;
+  background: #0C1142;
+  padding: 0 10px;
+}
+.footer .footer-content .social label:hover, .footer .footer-content .social a:hover {
+  color: #E1851C;
+}
+.footer .footer-content .copr {
+  border: 1px dotted rgb(245, 236, 236);
+  width: 50%;
+  float: left;
+  margin-top: 20px;
+  text-align: left;
+}
+
+@media (max-width: 1024px) {
+  .navbar-menu {
+    padding: 0 60px;
+  }
+}/*# sourceMappingURL=estilosP.css.map */
